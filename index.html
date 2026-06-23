@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="ocean">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neko Chan - Dashboard Wisatawan Nusantara</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Dashboard interaktif perjalanan Wisatawan Nusantara menurut asal Kabupaten/Kota di Provinsi Jawa Barat.">
+    <meta name="author" content="Antigravity Dev">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PRELOADER INITIAL SCREENS -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-backdrop-glow"></div>
+        <div class="preloader-content">
+            <!-- 3D Rotating Rings Geometric Loader -->
+            <div class="loader-3d">
+                <div class="ring ring-outer"></div>
+                <div class="ring ring-middle"></div>
+                <div class="ring ring-inner"></div>
+                <div class="loader-core"></div>
+            </div>
+            
+            <h1 class="loader-title">NEKO<span>CHAN</span></h1>
+            <p class="loader-subtitle">Sistem Analisis Wisatawan Nusantara</p>
+            
+            <!-- Progress Bar -->
+            <div class="loader-progress-container">
+                <div id="loader-progress-bar" class="loader-progress-bar"></div>
+            </div>
+            <div id="loader-status" class="loader-status">Menginisialisasi modul 3D...</div>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div id="app-container" class="app-container hidden">
+        
+        <!-- Sidebar Toggle Button (Fixed/Floating) -->
+        <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Menu">
+            <i data-lucide="menu"></i>
+        </button>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <img src="logo.png" alt="Neko Chan Logo" class="brand-logo-img">
+                </div>
+                <div class="brand-text">
+                    <h2>Neko Chan</h2>
+                    <span>Dashboard</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-target="page-profile">
+                    <i data-lucide="user"></i>
+                    <span>Profil Utama</span>
+                </button>
+                <div class="nav-section-header" id="dashboard-toggle">
+                    <span class="nav-section-title">Dashboard Analisis</span>
+                    <i data-lucide="chevron-down" class="section-toggle-icon"></i>
+                </div>
+                <div class="nav-section-content" id="dashboard-menu">
+                    <button class="nav-item" data-target="page-db1">
+                        <i data-lucide="calendar"></i>
+                        <span>Tahun 2021</span>
+                    </button>
+                    <button class="nav-item" data-target="page-db2">
+                        <i data-lucide="calendar"></i>
+                        <span>Tahun 2022</span>
+                    </button>
+                    <button class="nav-item" data-target="page-db3">
+                        <i data-lucide="calendar"></i>
+                        <span>Tahun 2023</span>
+                    </button>
+                    <button class="nav-item" data-target="page-db4">
+                        <i data-lucide="calendar"></i>
+                        <span>Tahun 2024</span>
+                    </button>
+                    <button class="nav-item" data-target="page-db5">
+                        <i data-lucide="calendar"></i>
+                        <span>Tahun 2025</span>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- THEME SELECTOR - Agar tidak monoton & membosankan -->
+            <div class="theme-selector-panel">
+                <div class="theme-title">
+                    <i data-lucide="palette"></i>
+                    <span>Gaya Warna</span>
+                </div>
+                <div class="theme-options">
+                    <button class="theme-btn active" data-theme="ocean" title="Ocean Emerald">
+                        <span class="theme-color-preview teal-green"></span>
+                    </button>
+                    <button class="theme-btn" data-theme="cyber" title="Cosmic Cyberpunk">
+                        <span class="theme-color-preview pink-blue"></span>
+                    </button>
+                    <button class="theme-btn" data-theme="sunset" title="Sunset Glow">
+                        <span class="theme-color-preview orange-gold"></span>
+                    </button>
+                    <button class="theme-btn" data-theme="aurora" title="Aurora Violet">
+                        <span class="theme-color-preview purple-cyan"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="footer-profile-mini">
+                    <div class="avatar-mini">
+                        <img src="logo.png" alt="Mini Avatar">
+                    </div>
+                    <div class="footer-info">
+                        <p class="user-name">Samsan</p>
+                        <p class="user-role">Reguler Pagi</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-title-area">
+                    <h1 id="current-page-title">Profil Utama</h1>
+                    <p class="top-subtitle">Wisatawan Nusantara Provinsi Jawa Barat</p>
+                </div>
+
+                <div class="top-actions">
+                    <div class="live-date">
+                        <i data-lucide="calendar"></i>
+                        <span id="date-display">Selasa, 23 Juni 2026</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                
+                <!-- PAGE 1: PROFILE (HOME) -->
+                <section id="page-profile" class="page-section active">
+                    <div class="profile-grid">
+                        
+                        <!-- 3D INTERACTIVE PROFILE CARD -->
+                        <div class="profile-card-3d-wrapper" id="profile-card-3d-wrapper">
+                            <div class="profile-card-3d">
+                                <div class="card-inner">
+                                    <div class="card-glow"></div>
+                                    <div class="card-header">
+                                        <div class="avatar-3d-container">
+                                            <div class="avatar-3d-ring"></div>
+                                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=jabar" alt="Developer Avatar" class="avatar-img">
+                                        </div>
+                                        <h2 class="profile-name">Samsan</h2>
+                                        <p class="profile-title">Reguler Pagi</p>
+                                    </div>
+                                    
+                                    <div class="card-body">
+                                        <div class="profile-meta-info">
+                                            <div class="meta-item">
+                                                <span class="label">NIM</span>
+                                                <span class="value">234260020</span>
+                                            </div>
+                                            <div class="meta-item">
+                                                <span class="label">Proyek</span>
+                                                <span class="value">Dashboard Data Statistik</span>
+                                            </div>
+                                            <div class="meta-item">
+                                                <span class="label">Mata Kuliah</span>
+                                                <span class="value">Manajemen Bisnis</span>
+                                            </div>
+                                            <div class="meta-item">
+                                                <span class="label">Universitas</span>
+                                                <span class="value">Universitas Al Ghifari</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="profile-desc">
+                                            "Aplikasi dashboard interaktif ini dibuat menggunakan visualisasi Looker Studio untuk menganalisis pergerakan wisatawan domestik di wilayah Kabupaten dan Kota di Jawa Barat."
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-footer">
+                                        <div class="profile-socials">
+                                            <a href="https://github.com/Neko-chan002/Pembuatan-Dashboard-Data-Statistik" target="_blank" rel="noopener noreferrer" class="social-icon" title="Github"><i data-lucide="github"></i></a>
+                                            <a href="#" class="social-icon" title="Instagram"><i data-lucide="instagram"></i></a>
+                                            <a href="#" class="social-icon" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                                        </div>
+                                        <button class="btn-primary 3d-btn" onclick="switchPage('page-db1')">
+                                            <span>Mulai Analisis</span>
+                                            <i data-lucide="arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- WELCOME AND INFO PANEL -->
+                        <div class="info-panel-wrapper">
+                            <div class="welcome-card glass-panel">
+                                <h3 class="panel-tag"><i data-lucide="sparkles"></i> Selamat Datang</h3>
+                                <h2>Analisis Interaktif Wisatawan Nusantara Jawa Barat</h2>
+                                <p>Selamat datang di platform analisis pariwisata Jawa Barat. Dashboard ini mengumpulkan data pergerakan, preferensi, dan kabupaten/kota asal dari jutaan wisatawan nusantara yang berkunjung ke dan di dalam wilayah Provinsi Jawa Barat.</p>
+                                <div class="welcome-buttons">
+                                    <a href="#proyek-detail" class="btn-secondary">Pelajari Proyek</a>
+                                    <button class="btn-primary" onclick="switchPage('page-db1')">Lihat Data Pertama</button>
+                                </div>
+                            </div>
+                            
+                            <!-- QUICK STATS CARDS -->
+                            <div class="stats-grid">
+                                <div class="stat-card glass-panel interactive-3d-mini">
+                                    <div class="stat-icon-wrapper theme-glow">
+                                        <i data-lucide="map-pin"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h4>27</h4>
+                                        <p>Kabupaten / Kota</p>
+                                    </div>
+                                    <div class="stat-glow"></div>
+                                </div>
+                                <div class="stat-card glass-panel interactive-3d-mini">
+                                    <div class="stat-icon-wrapper theme-glow">
+                                        <img src="logo.png" alt="Looker Mascot" class="stat-icon-img">
+                                    </div>
+                                    <div class="stat-info">
+                                        <h4>5 Halaman</h4>
+                                        <p>Visualisasi Looker</p>
+                                    </div>
+                                    <div class="stat-glow"></div>
+                                </div>
+                                <div class="stat-card glass-panel interactive-3d-mini">
+                                    <div class="stat-icon-wrapper theme-glow">
+                                        <i data-lucide="users"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h4>Wisnus</h4>
+                                        <p>Jawa Barat</p>
+                                    </div>
+                                    <div class="stat-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ABOUT THE PROJECT SECTION -->
+                    <div id="proyek-detail" class="about-section glass-panel">
+                        <h3><i data-lucide="book-open"></i> Informasi & Sumber Data</h3>
+                        <p>Dashboard ini dirancang khusus untuk menyajikan visualisasi data yang komprehensif mengenai pola pergerakan wisatawan nusantara berdasarkan asal wilayah administratif di Jawa Barat. Looker Studio digunakan sebagai mesin pemrosesan data, diintegrasikan dalam antarmuka web modern dengan arsitektur 3D yang dinamis.</p>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i data-lucide="zap"></i></div>
+                                <div>
+                                    <h5>Real-time Interaction</h5>
+                                    <p>Iframe Looker Studio terhubung langsung dengan sumber data cloud, memungkinkan filter wilayah dan waktu secara real-time.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i data-lucide="eye"></i></div>
+                                <div>
+                                    <h5>Visualisasi 3D Modern</h5>
+                                    <p>Nikmati transisi antar dashboard dengan kedalaman visual tinggi, antarmuka glassmorphic, dan kontrol fullscreen untuk kenyamanan presentasi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 2: DASHBOARD 1 -->
+                <section id="page-db1" class="page-section">
+                    <div class="dashboard-container glass-panel">
+                        <div class="db-header-bar">
+                            <div class="db-info">
+                                <span class="db-badge">Tahun 2021</span>
+                                <h3>Wisnus Asal Kabupaten/Kota (Perjalanan) - Tahun 2021</h3>
+                            </div>
+                            <div class="db-actions">
+                                <button class="db-btn-action reload-iframe" data-iframe-id="iframe-db1" title="Muat ulang data">
+                                    <i data-lucide="refresh-cw"></i>
+                                </button>
+                                <button class="db-btn-action fullscreen-btn" title="Layar Penuh">
+                                    <i data-lucide="maximize"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="db-iframe-wrapper">
+                            <!-- Custom Loading Indicator for Iframe -->
+                            <div class="iframe-loader">
+                                <div class="mini-spinner"></div>
+                                <span>Menghubungkan ke server Looker Studio...</span>
+                            </div>
+                            <!-- Looker Studio Iframe 1 -->
+                            <iframe id="iframe-db1" class="looker-iframe" width="100%" height="800" src="https://datastudio.google.com/embed/reporting/cff2980b-fb9f-45ce-855e-eba065c61321/page/fx21F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 3: DASHBOARD 2 -->
+                <section id="page-db2" class="page-section">
+                    <div class="dashboard-container glass-panel">
+                        <div class="db-header-bar">
+                            <div class="db-info">
+                                <span class="db-badge">Tahun 2022</span>
+                                <h3>Wisnus Asal Kabupaten/Kota (Perjalanan) - Tahun 2022</h3>
+                            </div>
+                            <div class="db-actions">
+                                <button class="db-btn-action reload-iframe" data-iframe-id="iframe-db2" title="Muat ulang data">
+                                    <i data-lucide="refresh-cw"></i>
+                                </button>
+                                <button class="db-btn-action fullscreen-btn" title="Layar Penuh">
+                                    <i data-lucide="maximize"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="db-iframe-wrapper">
+                            <div class="iframe-loader">
+                                <div class="mini-spinner"></div>
+                                <span>Menghubungkan ke server Looker Studio...</span>
+                            </div>
+                            <!-- Looker Studio Iframe 2 -->
+                            <iframe id="iframe-db2" class="looker-iframe" width="100%" height="800" src="https://datastudio.google.com/embed/reporting/02db6ba9-f901-4d72-a87d-dad21789e118/page/WV31F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 4: DASHBOARD 3 -->
+                <section id="page-db3" class="page-section">
+                    <div class="dashboard-container glass-panel">
+                        <div class="db-header-bar">
+                            <div class="db-info">
+                                <span class="db-badge">Tahun 2023</span>
+                                <h3>Wisnus Asal Kabupaten/Kota (Perjalanan) - Tahun 2023</h3>
+                            </div>
+                            <div class="db-actions">
+                                <button class="db-btn-action reload-iframe" data-iframe-id="iframe-db3" title="Muat ulang data">
+                                    <i data-lucide="refresh-cw"></i>
+                                </button>
+                                <button class="db-btn-action fullscreen-btn" title="Layar Penuh">
+                                    <i data-lucide="maximize"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="db-iframe-wrapper">
+                            <div class="iframe-loader">
+                                <div class="mini-spinner"></div>
+                                <span>Menghubungkan ke server Looker Studio...</span>
+                            </div>
+                            <!-- Looker Studio Iframe 3 -->
+                            <iframe id="iframe-db3" class="looker-iframe" width="100%" height="800" src="https://datastudio.google.com/embed/reporting/d9aed848-df68-4c58-b6e0-1ecdb28204f5/page/CW31F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 5: DASHBOARD 4 -->
+                <section id="page-db4" class="page-section">
+                    <div class="dashboard-container glass-panel">
+                        <div class="db-header-bar">
+                            <div class="db-info">
+                                <span class="db-badge">Tahun 2024</span>
+                                <h3>Wisnus Asal Kabupaten/Kota (Perjalanan) - Tahun 2024</h3>
+                            </div>
+                            <div class="db-actions">
+                                <button class="db-btn-action reload-iframe" data-iframe-id="iframe-db4" title="Muat ulang data">
+                                    <i data-lucide="refresh-cw"></i>
+                                </button>
+                                <button class="db-btn-action fullscreen-btn" title="Layar Penuh">
+                                    <i data-lucide="maximize"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="db-iframe-wrapper">
+                            <div class="iframe-loader">
+                                <div class="mini-spinner"></div>
+                                <span>Menghubungkan ke server Looker Studio...</span>
+                            </div>
+                            <!-- Looker Studio Iframe 4 -->
+                            <iframe id="iframe-db4" class="looker-iframe" width="100%" height="750" src="https://datastudio.google.com/embed/reporting/b6f277eb-e25f-4bb5-a993-cf42d9fe5777/page/hW31F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 6: DASHBOARD 5 -->
+                <section id="page-db5" class="page-section">
+                    <div class="dashboard-container glass-panel">
+                        <div class="db-header-bar">
+                            <div class="db-info">
+                                <span class="db-badge">Tahun 2025</span>
+                                <h3>Wisnus Asal Kabupaten/Kota (Perjalanan) - Tahun 2025</h3>
+                            </div>
+                            <div class="db-actions">
+                                <button class="db-btn-action reload-iframe" data-iframe-id="iframe-db5" title="Muat ulang data">
+                                    <i data-lucide="refresh-cw"></i>
+                                </button>
+                                <button class="db-btn-action fullscreen-btn" title="Layar Penuh">
+                                    <i data-lucide="maximize"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="db-iframe-wrapper">
+                            <div class="iframe-loader">
+                                <div class="mini-spinner"></div>
+                                <span>Menghubungkan ke server Looker Studio...</span>
+                            </div>
+                            <!-- Looker Studio Iframe 5 -->
+                            <iframe id="iframe-db5" class="looker-iframe" width="100%" height="750" src="https://datastudio.google.com/embed/reporting/7fdfd5ce-ea1e-4ea1-b941-48790bfb4f4f/page/1qtzF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Script Utama -->
+    <script src="script.js"></script>
+</body>
+</html>

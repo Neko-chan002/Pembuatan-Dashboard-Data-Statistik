@@ -119,7 +119,8 @@ function switchPage(targetId) {
 
     // Set page title top bar
     let pageTitle = "Profil Utama";
-    if (targetId === "page-db1") pageTitle = "Dashboard Tahun 2021";
+    if (targetId === "page-about") pageTitle = "Tentang Data & Glosarium";
+    else if (targetId === "page-db1") pageTitle = "Dashboard Tahun 2021";
     else if (targetId === "page-db2") pageTitle = "Dashboard Tahun 2022";
     else if (targetId === "page-db3") pageTitle = "Dashboard Tahun 2023";
     else if (targetId === "page-db4") pageTitle = "Dashboard Tahun 2024";

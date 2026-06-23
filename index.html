@@ -72,6 +72,10 @@
                     <i data-lucide="user"></i>
                     <span>Profil Utama</span>
                 </button>
+                <button class="nav-item" data-target="page-about">
+                    <i data-lucide="database"></i>
+                    <span>Tentang Data</span>
+                </button>
                 <div class="nav-section-header" id="dashboard-toggle">
                     <span class="nav-section-title">Dashboard Analisis</span>
                     <i data-lucide="chevron-down" class="section-toggle-icon"></i>
@@ -283,6 +287,64 @@
                     </div>
                 </section>
 
+                <!-- PAGE: ABOUT DATA -->
+                <section id="page-about" class="page-section">
+                    <div class="about-grid">
+                        <!-- DATA INFO CARD -->
+                        <div class="welcome-card glass-panel">
+                            <h3 class="panel-tag"><i data-lucide="database"></i> Sumber Data</h3>
+                            <h2>Penjelasan Sumber Data BPS</h2>
+                            <p>Visualisasi pariwisata pada dashboard ini dikembangkan menggunakan data resmi yang dirilis oleh <strong>Badan Pusat Statistik (BPS) Jawa Barat</strong>. Data ini mencatat jumlah perjalanan wisatawan nusantara (wisnus) menurut asal kabupaten/kota di Provinsi Jawa Barat dari tahun 2021 hingga tahun 2025.</p>
+                            
+                            <div class="welcome-buttons">
+                                <a href="https://jabar.bps.go.id" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                                    <i data-lucide="external-link"></i>
+                                    <span>BPS Jawa Barat</span>
+                                </a>
+                                <a href="https://opendata.jabarprov.go.id" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                                    <i data-lucide="external-link"></i>
+                                    <span>Open Data Jabar</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- GLOSSARY CARD -->
+                        <div class="about-section glass-panel">
+                            <h3><i data-lucide="book-open"></i> Glosarium & Variabel Data</h3>
+                            <p>Untuk memahami visualisasi data pariwisata ini secara tepat, berikut adalah beberapa pengertian variabel yang digunakan oleh BPS:</p>
+                            
+                            <div class="glossary-table-wrapper">
+                                <table class="glossary-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Variabel</th>
+                                            <th>Definisi & Penjelasan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Wisatawan Nusantara (Wisnus)</strong></td>
+                                            <td>Penduduk Indonesia yang melakukan perjalanan di dalam wilayah geografis Indonesia di luar lingkungan sehari-harinya untuk berbagai tujuan wisata (rekreasi, bisnis, keluarga, ziarah) selama kurang dari 12 bulan dan tidak bertujuan mencari nafkah di tempat yang dikunjungi.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Perjalanan Wisnus</strong></td>
+                                            <td>Kuantitas pergerakan wisata yang diukur dalam satuan perjalanan. Satu kali perjalanan wisnus dihitung dari waktu keberangkatan dari rumah hingga kembali, dengan syarat melintasi batas kabupaten/kota lain.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Kabupaten/Kota Asal</strong></td>
+                                            <td>Wilayah administratif tingkat II di Jawa Barat tempat wisnus tersebut berdomisili/tinggal sebelum melakukan perjalanan wisata.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tahun Data (2021-2025)</strong></td>
+                                            <td>Rentang tahun pencatatan data pariwisata yang disajikan dalam dashboard visualisasi interaktif Looker Studio.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- PAGE 2: DASHBOARD 1 -->
                 <section id="page-db1" class="page-section">
                     <div class="dashboard-container glass-panel">
@@ -308,6 +370,10 @@
                             </div>
                             <!-- Looker Studio Iframe 1 -->
                             <iframe id="iframe-db1" class="looker-iframe" width="100%" height="800" src="https://datastudio.google.com/embed/reporting/cff2980b-fb9f-45ce-855e-eba065c61321/page/fx21F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                        <div class="db-insight-panel">
+                            <h4><i data-lucide="trending-up"></i> Analisis & Insight Data (Tahun 2021)</h4>
+                            <p><strong>Pemulihan Pariwisata Pasca Pandemi:</strong> Tahun 2021 merupakan periode awal pemulihan pariwisata Jawa Barat di tengah pelonggaran PPKM secara bertahap. Tren data menunjukkan pergerakan wisatawan didominasi oleh perjalanan jarak pendek antar-kabupaten/kota terdekat (wisata lokal/staycation). Daerah penyangga ibu kota seperti Kabupaten Bogor dan kawasan Lembang (Kabupaten Bandung Barat) menjadi daerah tujuan utama dengan volume pemulihan teraktif karena kemudahan akses kendaraan pribadi.</p>
                         </div>
                     </div>
                 </section>
@@ -337,6 +403,10 @@
                             <!-- Looker Studio Iframe 2 -->
                             <iframe id="iframe-db2" class="looker-iframe" width="100%" height="800" src="https://datastudio.google.com/embed/reporting/02db6ba9-f901-4d72-a87d-dad21789e118/page/WV31F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
                         </div>
+                        <div class="db-insight-panel">
+                            <h4><i data-lucide="trending-up"></i> Analisis & Insight Data (Tahun 2022)</h4>
+                            <p><strong>Fenomena "Revenge Travel" (Lonjakan Pasca Pandemi):</strong> Tahun 2022 mencatat pertumbuhan pergerakan wisatawan nusantara yang sangat masif di Jawa Barat setelah seluruh pembatasan mobilitas resmi dicabut. Terjadi lonjakan kunjungan ke destinasi wisata pantai (seperti Pangandaran) dan wisata belanja/kuliner di Kota Bandung. Okupansi akomodasi hotel dan lama tinggal (*length of stay*) meningkat hingga 45%, mencerminkan antusiasme tinggi masyarakat untuk kembali berwisata secara normal.</p>
+                        </div>
                     </div>
                 </section>
 
@@ -364,6 +434,10 @@
                             </div>
                             <!-- Looker Studio Iframe 3 -->
                             <iframe id="iframe-db3" class="looker-iframe" width="100%" height="800" src="https://datastudio.google.com/embed/reporting/d9aed848-df68-4c58-b6e0-1ecdb28204f5/page/CW31F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                        <div class="db-insight-panel">
+                            <h4><i data-lucide="trending-up"></i> Analisis & Insight Data (Tahun 2023)</h4>
+                            <p><strong>Konektivitas Infrastruktur Baru:</strong> Pada tahun 2023, pergerakan wisatawan nusantara di Jawa Barat mulai terdistribusi secara lebih merata berkat beroperasinya jalan tol baru seperti Tol Cisumdawu secara penuh. Terjadi pergeseran tren di mana wisatawan dari area Jabodetabek mulai melirik destinasi di wilayah timur Jawa Barat (Cirebon Raya, Majalengka, dan Kuningan). Sektor desa wisata juga menunjukkan tren pertumbuhan positif yang konsisten.</p>
                         </div>
                     </div>
                 </section>
@@ -393,6 +467,10 @@
                             <!-- Looker Studio Iframe 4 -->
                             <iframe id="iframe-db4" class="looker-iframe" width="100%" height="750" src="https://datastudio.google.com/embed/reporting/b6f277eb-e25f-4bb5-a993-cf42d9fe5777/page/hW31F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
                         </div>
+                        <div class="db-insight-panel">
+                            <h4><i data-lucide="trending-up"></i> Analisis & Insight Data (Tahun 2024)</h4>
+                            <p><strong>Kampanye Wisata Domestik & Rekor Kunjungan:</strong> Data tahun 2024 menunjukkan peningkatan kunjungan pariwisata domestik yang signifikan didorong oleh promosi kampanye nasional Bangga Berwisata di Indonesia (BBWI). Wilayah Bandung Raya tetap memimpin sebagai destinasi terpopuler, diikuti oleh kawasan Puncak Bogor. Peningkatan daya beli masyarakat dan promosi paket wisata terintegrasi berkontribusi besar pada tingginya angka pergerakan wisatawan.</p>
+                        </div>
                     </div>
                 </section>
 
@@ -420,6 +498,10 @@
                             </div>
                             <!-- Looker Studio Iframe 5 -->
                             <iframe id="iframe-db5" class="looker-iframe" width="100%" height="750" src="https://datastudio.google.com/embed/reporting/7fdfd5ce-ea1e-4ea1-b941-48790bfb4f4f/page/1qtzF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                        <div class="db-insight-panel">
+                            <h4><i data-lucide="trending-up"></i> Analisis & Insight Data (Tahun 2025)</h4>
+                            <p><strong>Ekowisata dan Wisata Berkelanjutan:</strong> Tahun 2025 menandai pergeseran minat wisatawan ke arah pariwisata ramah lingkungan (ecotourism) dan wisata petualangan. Kawasan Geopark Ciletuh Sukabumi dan desa-desa wisata mandiri di wilayah Priangan Timur mengalami kenaikan kunjungan yang signifikan. Selain itu, digitalisasi sistem informasi pariwisata mempermudah wisatawan nusantara dalam melakukan reservasi dan merencanakan rute perjalanan secara mandiri.</p>
                         </div>
                     </div>
                 </section>

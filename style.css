@@ -1498,3 +1498,97 @@ html, body {
     width: 20px;
     height: 20px;
 }
+
+/* ==========================================
+   ABOUT DATA PAGE & INSIGHT PANEL STYLING
+   ========================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 380px 1fr;
+    }
+}
+
+/* Glossary Table */
+.glossary-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.glossary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.glossary-table th, .glossary-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glossary-table th {
+    background: rgba(255, 255, 255, 0.02);
+    font-weight: 700;
+    color: var(--accent-primary);
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
+.glossary-table tr:last-child td {
+    border-bottom: none;
+}
+
+.glossary-table td strong {
+    color: var(--accent-secondary);
+}
+
+.glossary-table td {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Dashboard Insight Panel */
+.db-insight-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--border-glass);
+    padding: 24px 30px;
+    margin-top: 0;
+    transition: var(--transition-smooth);
+}
+
+.db-insight-panel h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.db-insight-panel h4 i {
+    width: 18px;
+    height: 18px;
+}
+
+.db-insight-panel p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.db-insight-panel p strong {
+    color: var(--text-primary);
+}

@@ -1321,12 +1321,8 @@ html, body {
     transition: opacity 0.5s ease;
 }
 
-#iframe-db1, #iframe-db2, #iframe-db3 {
-    height: 1080px;
-}
-
-#iframe-db4, #iframe-db5 {
-    height: 980px;
+#iframe-db1 {
+    height: 920px;
 }
 
 /* Local Iframe Loader */
